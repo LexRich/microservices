@@ -26,6 +26,7 @@ services:
     networks:
       - front_net
       - back_net
+
   prometheus:
     image: ${USERNAME}/prometheus
     ports:
@@ -33,6 +34,7 @@ services:
     networks:
       - front_net
       - back_net
+
   node-exporter:
     image: prom/node-exporter:v0.15.0
     user: root
@@ -45,7 +47,6 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
-      - front_net
       - back_net
 
 volumes:
