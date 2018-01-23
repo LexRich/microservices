@@ -13,7 +13,7 @@ services:
   ui:
     image: ${USERNAME}/ui
     ports:
-      - ${UIPORT}:${UIPORT}/tcp
+      - ${UIPORT}:9292/tcp
     networks:
       - front_net
   post:
@@ -76,7 +76,7 @@ services:
       - back_net
 
   alertmanager:
-    image: ${USER_NAME}/alertmanager
+    image: ${USERNAME}/alertmanager
     command:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
